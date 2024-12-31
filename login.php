@@ -3,11 +3,9 @@ session_start();
 include_once "koneksi.php";
 $username = htmlspecialchars($_POST['username']);
 $password = md5(htmlspecialchars($_POST['password']));
-// $username = $_POST['username'];
-// $password = $_POST['password'];
 
 if ($_POST['submit']) {
-    $cek = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+    $cek = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' AND password='$password'");
     if ($cek->num_rows > 0) {
         $data = $cek->fetch_assoc();
         echo "<script>alert('Login Berhasil!')</script>";

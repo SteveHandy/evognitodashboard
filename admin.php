@@ -13,7 +13,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <style>
         body {
@@ -81,13 +81,13 @@
                             <a class="nav-link" href="./">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin.php?page=dashboard&judul=Dashboard">Dashboard</a>
+                            <a class="nav-link" href="admin.php?page=dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin.php?page=article&judul=Article">Article</a>
+                            <a class="nav-link" href="admin.php?page=article">Article</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin.php?page=gallery&judul=Gallery">Gallery</a>
+                            <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Logout</a>
@@ -103,9 +103,10 @@
             <div class="container">
                 <?php
                 session_start();
+                include "koneksi.php";
                 if (isset($_GET['page'])) {
                 ?>
-                    <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle"><?= ucfirst($_GET['judul']) ?></h4>
+                    <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle"><?= ucfirst($_GET['page']) ?></h4>
                 <?php
                     include($_GET['page'] . ".php");
                 } else {
@@ -128,7 +129,6 @@
         </div>
         <p class="mt-2">Steve Imanuel Christ Handy &copy; 2024</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>

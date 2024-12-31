@@ -1,3 +1,6 @@
+<?php
+include "koneksi.php";
+?>
 <!DOCTYPE html>
 <html lang="id" data-bs-theme="light">
 
@@ -174,16 +177,15 @@
         <h1 class="mb-4">Blog</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
           <?php
-          include_once "koneksi.php";
           $sql = "SELECT * FROM article ORDER BY tanggal DESC";
-          $hasil = $koneksi->query($sql);
+          $hasil = $conn->query($sql);
 
           $no = 1;
           while ($row = $hasil->fetch_assoc()) {
           ?>
             <div class="col">
               <div class="card h-100">
-                <img src="<?= $row["gambar"] ?>" class="card-img-top" alt="..." />
+                <img src="img/<?= $row["gambar"] ?>" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title"><?= $row["judul"] ?></h5>
                   <p class="card-text">
